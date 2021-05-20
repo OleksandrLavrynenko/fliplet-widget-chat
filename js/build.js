@@ -2769,6 +2769,7 @@ Fliplet.Widget.instance('chat', function (data) {
         }
       }).catch(function (err) {
         console.error(err);
+
         if (err && err.status === 403) {
           // Log in again if the token does not seem valid
           $wrapper.addClass('loading');
