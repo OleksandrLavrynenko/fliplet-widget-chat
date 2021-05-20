@@ -2746,7 +2746,7 @@ Fliplet.Widget.instance('chat', function (data) {
           });
 
           if (!user) {
-            Fliplet.UI.Toast.error('The user has not been found. Please check whether the contacts data source has been set up correctly.');
+            Fliplet.UI.Toast.error('User is not found. Please check the contacts data source.');
             return;
           }
 
