@@ -2741,7 +2741,7 @@ Fliplet.Widget.instance('chat', function (data) {
 
       getContacts(false).then(function() {
         if (userEmail) {
-          const user = _.find(otherPeople, function (user) {
+          var user = _.find(otherPeople, function (user) {
             return user.data[data.primaryKey] === userEmail;
           });
 
