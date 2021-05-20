@@ -25,6 +25,12 @@ When navigating to the page that hosts the chat, you can start a conversation wi
 ?contactConversation=123
 ```
 
+Alternatively, you can provide the contact's email via the `contactEmail` parameter:
+
+```
+?contactEmail=john@example.com
+```
+
 Note: if the user has not logged in, the conversation will still be started with the user after logging in.
 
 ---
