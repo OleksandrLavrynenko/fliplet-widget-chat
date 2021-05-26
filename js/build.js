@@ -171,16 +171,12 @@ Fliplet.Widget.instance('chat', function (data) {
       backdrop: true,
       duration: false
     });
-  } else if (Fliplet.Navigate.query.contactConversation) {
+  } else if (Fliplet.Navigate.query.contactConversation || Fliplet.Navigate.query.contactEmail) {
     Fliplet.UI.Toast({
       message: 'Opening conversation...',
       backdrop: true,
       duration: false
     });
-  }
-
-  function setLoadingMessage(message) {
-    $loader.text(message);
   }
 
   function panChat(e) {
@@ -2733,6 +2729,7 @@ Fliplet.Widget.instance('chat', function (data) {
       });
     }).then(function() {
       var userId = Fliplet.Navigate.query.contactConversation;
+      var userEmail = Fliplet.Navigate.query.contactEmail;
 
       if (userId) {
         createConversation([userId]);
@@ -2743,6 +2740,21 @@ Fliplet.Widget.instance('chat', function (data) {
       $wrapper.removeClass('error');
 
       getContacts(false).then(function() {
+        if (userEmail) {
+          var user = _.find(otherPeople, function (user) {
+            return user.data[data.primaryKey] === userEmail;
+          });
+
+          if (!user) {
+            Fliplet.UI.Toast.error('User is not found. Please check the contacts data source.');
+            return;
+          }
+
+          createConversation([user.id]);
+          Fliplet.UI.Toast.dismiss();
+          return;
+        }
+
         return getConversations(false);
       }).then(function () {
         var conversationId = Fliplet.Navigate.query.conversationId;
@@ -2756,6 +2768,8 @@ Fliplet.Widget.instance('chat', function (data) {
           Fliplet.UI.Toast.dismiss();
         }
       }).catch(function (err) {
+        console.error(err);
+
         if (err && err.status === 403) {
           // Log in again if the token does not seem valid
           $wrapper.addClass('loading');
