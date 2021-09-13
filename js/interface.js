@@ -75,6 +75,14 @@ $('#show-full-name-field').on('click', function() {
   $('.first-last-names-holder').addClass('hidden');
 });
 
+$('#chat-contacts-settings').on('shown.bs.tab', function () {
+  dataSourceProvider.emit('show-widget');
+})
+
+$('#chat-security-settings').on('shown.bs.tab', function () {
+  linkSecurityProvider.emit('show-widget');
+})
+
 // Fired from Fliplet Studio when the external save button is clicked
 Fliplet.Widget.onSaveRequest(function () {
   dataSourceProvider.forwardSaveRequest();
