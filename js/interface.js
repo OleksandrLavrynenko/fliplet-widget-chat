@@ -76,11 +76,11 @@ $('#show-full-name-field').on('click', function() {
 });
 
 $('#chat-contacts-settings').on('shown.bs.tab', function () {
-  dataSourceProvider.emit('show-widget');
+  dataSourceProvider.emit('widget-autosize');
 })
 
 $('#chat-security-settings').on('shown.bs.tab', function () {
-  linkSecurityProvider.emit('show-widget');
+  linkSecurityProvider.emit('widget-autosize');
 })
 
 // Fired from Fliplet Studio when the external save button is clicked
