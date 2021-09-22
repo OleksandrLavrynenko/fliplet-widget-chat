@@ -76,10 +76,12 @@ $('#show-full-name-field').on('click', function() {
 });
 
 $('#chat-contacts-settings').on('shown.bs.tab', function() {
+  console.log('ds-pro');
   dataSourceProvider.emit('widget-autosize');
 });
 
 $('#chat-security-settings').on('shown.bs.tab', function() {
+  console.log('link-pro');
   linkSecurityProvider.emit('widget-autosize');
 });
 
