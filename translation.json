@@ -62,7 +62,11 @@
                     "errors": {
                         "sendFailed": "Couldn't send your message. Try again!"
                     },
-                    "sendTo": "Send to"
+                    "sendTo": "Send to",
+                    "newConversation": {
+                        "title": "New conversation",
+                        "instruction": "Select contacts to start a conversation"
+                    }
                 },
                 "tabs": {
                     "directMessages": "Direct Messages",
