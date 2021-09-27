@@ -1,0 +1,51 @@
+{
+    "widgets": {
+        "chat": {
+            "dataSource": {
+                "header": {
+                    "title": "Messages"
+                },
+                "searching": "<i class=\"fa fa-spinner fa-pulse\"></i> Searching for network...",
+                "loading": "Loading",
+                "noAccess ": {
+                    "mismatch": "Verify that you can access this feature. Try again by<br> pressing the <strong>Refresh</strong> button below.",
+                    "action": "Refresh"
+                },
+                "instruction": "To start messaging contacts tap the <i class=\"fa fa-pencil-square-o\"></i> at the top of your screen.",
+                "chat": {
+                    "copy": "Message copied",
+                    "messagePlaceholder": "Type message",
+                    "actions": {
+                        "send": "Send",
+                        "save": "Save",
+                        "cancel": "Cancel"
+                    }
+                },
+                "group": {
+                    "title": "New Group",
+                    "instruction": "PARTICIPANTS: <span class=\"participant-count\"></span> selected",
+                    "placeholderGroupName": "Group name",
+                    "group": "Group",
+                    "participants": "Participants",
+                    "actions": {
+                        "create": "Create",
+                        "back": "Back"
+                    }
+                },
+                "contacts": {
+                    "instruction": "Select recipients",
+                    "actions": {
+                        "cancel": "Cancel",
+                        "next": "Next",                        
+                        "clear": "Clear selection",
+                        "more": "Load more"
+                    },
+                    "placeholderSearch": "Search...",
+                    "recipient": "<span class=\"count\"></span> recipient<span class=\"plural\"></span> selected",
+                    "noFound": "<i class=\"fa fa-meh-o\"></i> No results found",
+                    "loading": "Loading..."
+                }
+            }
+        }
+    }
+}
