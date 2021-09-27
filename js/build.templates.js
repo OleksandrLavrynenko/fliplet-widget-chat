@@ -3,7 +3,17 @@ this["Fliplet"]["Widget"] = this["Fliplet"]["Widget"] || {};
 this["Fliplet"]["Widget"]["Templates"] = this["Fliplet"]["Widget"]["Templates"] || {};
 
 this["Fliplet"]["Widget"]["Templates"]["templates.admin-button-group"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"group-buttons-label\">\r\n  <p class=\"title\">Admin only groups</p>\r\n</div>\r\n<div class=\"group-buttons-holder\">\r\n  <div class=\"btn btn-create-group\" data-group=\"all\">All attendees</div>\r\n  <div class=\"btn btn-create-group\" data-group=\"speakers\">Speakers only</div>\r\n  <div class=\"btn btn-create-group\" data-group=\"admins\">Admins only</div>\r\n</div>";
+    var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3=container.escapeExpression;
+
+  return "<div class=\"group-buttons-label\">\r\n  <p class=\"title\">"
+    + alias3((helpers.T || (depth0 && depth0.T) || alias2).call(alias1,"widgets.chat.dataSource.adminButtonGroup.title",{"name":"T","hash":{},"data":data}))
+    + "</p>\r\n</div>\r\n<div class=\"group-buttons-holder\">\r\n  <div class=\"btn btn-create-group\" data-group=\"all\">"
+    + alias3((helpers.T || (depth0 && depth0.T) || alias2).call(alias1,"widgets.chat.dataSource.adminButtonGroup.actions.all",{"name":"T","hash":{},"data":data}))
+    + "</div>\r\n  <div class=\"btn btn-create-group\" data-group=\"speakers\">"
+    + alias3((helpers.T || (depth0 && depth0.T) || alias2).call(alias1,"widgets.chat.dataSource.adminButtonGroup.actions.speakers",{"name":"T","hash":{},"data":data}))
+    + "</div>\r\n  <div class=\"btn btn-create-group\" data-group=\"admins\">"
+    + alias3((helpers.T || (depth0 && depth0.T) || alias2).call(alias1,"widgets.chat.dataSource.adminButtonGroup.actions.admins",{"name":"T","hash":{},"data":data}))
+    + "</div>\r\n</div>";
 },"useData":true});
 
 this["Fliplet"]["Widget"]["Templates"]["templates.chat-header"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

@@ -44,6 +44,14 @@
                     "recipient": "<span class=\"count\"></span> recipient<span class=\"plural\"></span> selected",
                     "noFound": "<i class=\"fa fa-meh-o\"></i> No results found",
                     "loading": "Loading..."
+                },
+                "adminButtonGroup": {
+                    "title": "Admin only groups",
+                    "actions": {
+                        "all": "All attendees",
+                        "speakers": "Speakers only",
+                        "admins": "Admins only"
+                    }
                 }
             }
         }
