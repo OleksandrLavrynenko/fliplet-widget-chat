@@ -52,6 +52,17 @@
                         "speakers": "Speakers only",
                         "admins": "Admins only"
                     }
+                },
+                "conversation": {
+                    "offline": "Your device is offline",
+                    "actions": {
+                        "more": "Load more",
+                        "send": "Send"
+                    },
+                    "errors": {
+                        "sendFailed": "Couldn't send your message. Try again!"
+                    },
+                    "sendTo": "Send to"
                 }
             }
         }
