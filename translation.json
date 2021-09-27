@@ -63,6 +63,10 @@
                         "sendFailed": "Couldn't send your message. Try again!"
                     },
                     "sendTo": "Send to"
+                },
+                "tabs": {
+                    "directMessages": "Direct Messages",
+                    "publicChannels": "Public Channels"
                 }
             }
         }

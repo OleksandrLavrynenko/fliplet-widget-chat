@@ -53,7 +53,13 @@ this["Fliplet"]["Widget"]["Templates"]["templates.group-contacts-template"] = Ha
 },"useData":true});
 
 this["Fliplet"]["Widget"]["Templates"]["templates.group-tabs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<section class=\"tab-group\">\r\n  <label class=\"tab\">\r\n    <input type=\"radio\" name=\"group-tabs\" value=\"\" checked=\"checked\" />\r\n    <span class=\"control-label\">Direct Messages</span>\r\n  </label>\r\n  <label class=\"tab\">\r\n    <input type=\"radio\" name=\"group-tabs\" value=\"1\" />\r\n    <span class=\"control-label\">Public Channels</span>\r\n  </label>\r\n</section>\r\n";
+    var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3=container.escapeExpression;
+
+  return "<section class=\"tab-group\">\r\n  <label class=\"tab\">\r\n    <input type=\"radio\" name=\"group-tabs\" value=\"\" checked=\"checked\" />\r\n    <span class=\"control-label\">"
+    + alias3((helpers.T || (depth0 && depth0.T) || alias2).call(alias1,"widgets.chat.dataSource.tabs.directMessages",{"name":"T","hash":{},"data":data}))
+    + "</span>\r\n  </label>\r\n  <label class=\"tab\">\r\n    <input type=\"radio\" name=\"group-tabs\" value=\"1\" />\r\n    <span class=\"control-label\">"
+    + alias3((helpers.T || (depth0 && depth0.T) || alias2).call(alias1,"widgets.chat.dataSource.tabs.publicChannels",{"name":"T","hash":{},"data":data}))
+    + "</span>\r\n  </label>\r\n</section>\r\n";
 },"useData":true});
 
 this["Fliplet"]["Widget"]["Templates"]["templates.message-gap"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
