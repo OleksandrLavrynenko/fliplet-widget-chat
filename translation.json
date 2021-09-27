@@ -67,6 +67,17 @@
                 "tabs": {
                     "directMessages": "Direct Messages",
                     "publicChannels": "Public Channels"
+                },
+                "message": {
+                    "actions": {
+                        "copy": "Copy",
+                        "edit": "Edit",
+                        "delete": "Delete"
+                    },
+                    "errors": {
+                        "offline": "No internet"
+                    },
+                    "successEdit": "Edited"
                 }
             }
         }
