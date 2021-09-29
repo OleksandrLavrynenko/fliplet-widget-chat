@@ -13,7 +13,7 @@
                 "cancel": "Cancel"
             },
             "verifyAccess ": {
-                "mismatch": "Verify that you can access this feature. Try again by<br> pressing the <strong>Refresh</strong> button below.",
+                "instruction": "Verify that you can access this feature. Try again by<br> pressing the <strong>Refresh</strong> button below.",
                 "actions": {
                     "refresh": "Refresh"
                 }
@@ -60,7 +60,7 @@
                 },
                 "searchPlaceholder": "Search...",
                 "recipient": "<span class=\"count\"></span> recipient<span class=\"plural\"></span> selected",
-                "noFound": "<i class=\"fa fa-meh-o\"></i> No results found",
+                "notFound": "<i class=\"fa fa-meh-o\"></i> No results found",
                 "loading": "Loading..."
             },
             "adminButtonGroup": {
