@@ -2922,7 +2922,7 @@ Fliplet.Widget.instance('chat', function(data) {
   }
 
   function attemptLogin(offline) {
-    var notLoggedInErrorMessage = T('widgets.chat.chat.instruction');
+    var notLoggedInErrorMessage = T('widgets.chat.errors.noLogged');
     var allowOffline = typeof offline === 'undefined' ? true : offline;
 
     var loginOp;
@@ -2970,7 +2970,7 @@ Fliplet.Widget.instance('chat', function(data) {
       $wrapper.addClass('error');
 
       Fliplet.UI.Toast.error(error, {
-        message: (Fliplet.Env.get('interact') ? T('widgets.chat.chat.errorToast.editNotAvailable') : T('widgets.chat.chat.errorToast.connectFailed'))
+        message: (Fliplet.Env.get('interact') ? T('widgets.chat.errorToast.editNotAvailable') : T('widgets.chat.errorToast.connectFailed'))
       });
     });
   }
