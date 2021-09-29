@@ -14,7 +14,9 @@
             },
             "verifyAccess ": {
                 "mismatch": "Verify that you can access this feature. Try again by<br> pressing the <strong>Refresh</strong> button below.",
-                "action": "Refresh"
+                "actions": {
+                    "refresh": "Refresh"
+                }
             },
             "group": {
                 "title": "New Group",
