@@ -4,7 +4,7 @@
             "title": "Messages",
             "searchingNetwork": "<i class=\"fa fa-spinner fa-pulse\"></i> Searching for network...",
             "loading": "Loading",
-            "copy": "Message copied",
+            "copied": "Message copied",
             "messagePlaceholder": "Type message",
             "instruction": "To start messaging contacts tap the <i class=\"fa fa-pencil-square-o\"></i> at the top of your screen.",
             "actions": {
@@ -19,7 +19,7 @@
             "group": {
                 "title": "New Group",
                 "instruction": "PARTICIPANTS: <span class=\"participant-count\"></span> selected",
-                "GroupNamePlaceholder": "Group name",
+                "groupNamePlaceholder": "Group name",
                 "participants": {
                     "title": "Group",
                     "subtitle": "Participants"
