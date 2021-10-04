@@ -645,7 +645,7 @@ Fliplet.Widget.instance('chat', function(data) {
 
     return new Promise(function(resolve, reject) {
       return Fliplet.UI.Actions({
-        title: T('widgets.chat.conversation.UIActions.title.setting'),
+        title: T('widgets.chat.conversation.UIActions.title.settings'),
         labels: [
           {
             label: conversation.isMuted ? T('widgets.chat.conversation.UIActions.label.unmute') : T('widgets.chat.conversation.UIActions.label.mute'),
@@ -1374,7 +1374,7 @@ Fliplet.Widget.instance('chat', function(data) {
               return reject('Not implemented');
           }
         },
-        T('widgets.chat.confirm.instruction'),
+        T('widgets.chat.confirm.profilePhoto'),
         [T('widgets.chat.confirm.actions.take'), T('widgets.chat.confirm.actions.chooseExisting'), T('widgets.chat.confirm.actions.cancel')]
       );
     });
@@ -2074,8 +2074,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
       if (!userIds.length) {
         options = {
-          title: T('widgets.chat.group.navigatePopup.title'),
-          message: T('widgets.chat.group.navigatePopup.message.noAttendees')
+          title: T('widgets.chat.group.notification.title'),
+          message: T('widgets.chat.group.notification.message.noAttendees')
         };
 
         Fliplet.Navigate.popup(options);
@@ -2094,8 +2094,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
       if (!userIds.length) {
         options = {
-          title: T('widgets.chat.group.navigatePopup.title'),
-          message: T('widgets.chat.group.navigatePopup.message.noSpeakers')
+          title: T('widgets.chat.group.notification.title'),
+          message: T('widgets.chat.group.notification.message.noSpeakers')
         };
 
         Fliplet.Navigate.popup(options);
@@ -2114,8 +2114,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
       if (!userIds.length) {
         options = {
-          title: T('widgets.chat.group.navigatePopup.title'),
-          message: T('widgets.chat.group.navigatePopup.message.noAdmins')
+          title: T('widgets.chat.group.notification.title'),
+          message: T('widgets.chat.group.notification.message.noAdmins')
         };
 
         Fliplet.Navigate.popup(options);
@@ -2796,7 +2796,7 @@ Fliplet.Widget.instance('chat', function(data) {
 
   function getUserEmail() {
     if (!crossLoginColumnName) {
-      return Promise.reject(T('widgets.chat.errors.missingConfiguration'));
+      return Promise.reject(T('widgets.chat.errors.userEmailNotFound'));
     }
 
     return Fliplet.App.Storage.get(CROSSLOGIN_EMAIL_KEY).then(function(email) {
@@ -2922,7 +2922,7 @@ Fliplet.Widget.instance('chat', function(data) {
   }
 
   function attemptLogin(offline) {
-    var notLoggedInErrorMessage = T('widgets.chat.errors.noLogged');
+    var notLoggedInErrorMessage = T('widgets.chat.errors.unauthorized');
     var allowOffline = typeof offline === 'undefined' ? true : offline;
 
     var loginOp;
