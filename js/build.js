@@ -162,7 +162,7 @@ Fliplet.Widget.instance('chat', function(data) {
 
   if (Fliplet.Navigate.query.conversationId) {
     Fliplet.UI.Toast({
-      message: T('widgets.chat.channel.infoToast.openChannel'),
+      message: T('widgets.chat.channel.infoToast.openingChannel'),
       backdrop: true,
       duration: false
     });
@@ -587,10 +587,10 @@ Fliplet.Widget.instance('chat', function(data) {
 
     Fliplet.UI.Actions({
       title: isChannelOrGroup
-        ? T('widgets.chat.conversation.UIActions.title.leave', { label: groupLabel })
-        : T('widgets.chat.conversation.UIActions.title.delete'),
+        ? T('widgets.chat.conversation.UIActions.leave.title', { label: groupLabel })
+        : T('widgets.chat.conversation.UIActions.delete.title'),
       labels: [{
-        label: isChannelOrGroup ? T('widgets.chat.conversation.UIActions.label.leave') : T('widgets.chat.conversation.UIActions.label.delete'),
+        label: isChannelOrGroup ? T('widgets.chat.conversation.UIActions.leave.label') : T('widgets.chat.conversation.UIActions.delete.label'),
         action: function() {
           // Get the conversation
           var conversationToBeRemoved = _.find(conversations, { id: conversationId });
@@ -645,10 +645,10 @@ Fliplet.Widget.instance('chat', function(data) {
 
     return new Promise(function(resolve, reject) {
       return Fliplet.UI.Actions({
-        title: T('widgets.chat.conversation.UIActions.title.settings'),
+        title: T('widgets.chat.conversation.UIActions.settings.title'),
         labels: [
           {
-            label: conversation.isMuted ? T('widgets.chat.conversation.UIActions.label.unmute') : T('widgets.chat.conversation.UIActions.label.mute'),
+            label: conversation.isMuted ? T('widgets.chat.conversation.UIActions.unmute.label') : T('widgets.chat.conversation.UIActions.mute.label'),
             action: function() {
               // Toggles muting
               conversation.notifications[conversation.isMuted ? 'unmute' : 'mute']().then(function() {
@@ -769,7 +769,7 @@ Fliplet.Widget.instance('chat', function(data) {
       return;
     }
 
-    Fliplet.UI.Toast(T('widgets.chat.channel.infoToast.join'));
+    Fliplet.UI.Toast(T('widgets.chat.channel.infoToast.joining'));
     $('.contacts-done-holder').addClass('creating');
 
     // Add current user to target public channel
@@ -1355,7 +1355,7 @@ Fliplet.Widget.instance('chat', function(data) {
       };
 
       navigator.notification.confirm(
-        T('widgets.chat.confirm.title'),
+        T('widgets.chat.profilePhoto.title'),
         function onSelectedImageMethod(button) {
           document.body.focus();
 
@@ -1374,8 +1374,8 @@ Fliplet.Widget.instance('chat', function(data) {
               return reject('Not implemented');
           }
         },
-        T('widgets.chat.confirm.profilePhoto'),
-        [T('widgets.chat.confirm.actions.take'), T('widgets.chat.confirm.actions.chooseExisting'), T('widgets.chat.confirm.actions.cancel')]
+        T('widgets.chat.profilePhoto.instruction'),
+        [T('widgets.chat.profilePhoto.actions.take'), T('widgets.chat.profilePhoto.actions.chooseExisting'), T('widgets.chat.profilePhoto.actions.cancel')]
       );
     });
   }
@@ -2074,8 +2074,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
       if (!userIds.length) {
         options = {
-          title: T('widgets.chat.group.notification.title'),
-          message: T('widgets.chat.group.notification.message.noAttendees')
+          title: T('widgets.chat.group.noGroupCreated.title'),
+          message: T('widgets.chat.group.noGroupCreated.message.noAttendees')
         };
 
         Fliplet.Navigate.popup(options);
@@ -2094,8 +2094,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
       if (!userIds.length) {
         options = {
-          title: T('widgets.chat.group.notification.title'),
-          message: T('widgets.chat.group.notification.message.noSpeakers')
+          title: T('widgets.chat.group.noGroupCreated.title'),
+          message: T('widgets.chat.group.noGroupCreated.message.noSpeakers')
         };
 
         Fliplet.Navigate.popup(options);
@@ -2114,8 +2114,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
       if (!userIds.length) {
         options = {
-          title: T('widgets.chat.group.notification.title'),
-          message: T('widgets.chat.group.notification.message.noAdmins')
+          title: T('widgets.chat.group.noGroupCreated.title'),
+          message: T('widgets.chat.group.noGroupCreated.message.noAdmins')
         };
 
         Fliplet.Navigate.popup(options);

@@ -30,7 +30,7 @@
                     "create": "Create",
                     "back": "Back"
                 },
-                "notification": {
+                "noGroupCreated": {
                     "title": "No group created",
                     "message": {
                         "noAttendees": "We couldn't find any attendees.",
@@ -44,12 +44,12 @@
                     "joinSuccess": "Successfully joined channel"
                 },
                 "infoToast": {
-                  "openChannel": "Opening channel...",
+                  "openingChannel": "Opening channel...",
                   "offline": {
                       "title": "You are offline",
                       "message": "An internet connection is necessary to join a public channel."
                   },
-                  "join": "Joining channel..."
+                  "joining": "Joining channel..."
                 }
             },
             "contacts": {
@@ -106,16 +106,22 @@
                     "createFailed": "Error creating conversation."
                 },
                 "UIActions": {
-                    "title": {
-                        "leave": "Are you sure you want to leave this {{label}}?",
-                        "delete": "Are you sure you want to delete this conversation?",
-                        "settings": "Notification settings"
+                    "delete": {
+                      "title": "Are you sure you want to delete this conversation?",
+                      "label": "Delete"
                     },
-                    "label": {
-                        "leave": "Leave",
-                        "delete": "Delete",
-                        "unmute": "Unmute",
-                        "mute": "Mute"
+                    "leave": {
+                      "title": "Are you sure you want to leave this {{label}}?",
+                      "label": "Leave"
+                    },
+                    "settings": {
+                      "title": "Notification settings"
+                    },
+                    "unmute": {
+                      "label": "Unmute"
+                    },
+                    "mute": {
+                      "label": "Mute"
                     }
                 }
             },
@@ -153,9 +159,9 @@
                     }
                 }
             },
-            "confirm": {
+            "profilePhoto": {
                 "title": "How do you want to choose your image?",
-                "profilePhoto": "Choose Image",
+                "instruction": "Choose Image",
                 "actions": {
                     "take": "Take Photo",
                     "chooseExisting": "Choose Existing Photo",
