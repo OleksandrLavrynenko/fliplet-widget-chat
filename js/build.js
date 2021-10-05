@@ -162,13 +162,13 @@ Fliplet.Widget.instance('chat', function(data) {
 
   if (Fliplet.Navigate.query.conversationId) {
     Fliplet.UI.Toast({
-      message: T('widgets.chat.channel.successToast.openChannel'),
+      message: T('widgets.chat.channel.infoToast.openChannel'),
       backdrop: true,
       duration: false
     });
   } else if (Fliplet.Navigate.query.contactConversation || Fliplet.Navigate.query.contactEmail) {
     Fliplet.UI.Toast({
-      message: T('widgets.chat.conversation.successToast.open'),
+      message: T('widgets.chat.conversation.infoToast.open'),
       backdrop: true,
       duration: false
     });
@@ -590,7 +590,7 @@ Fliplet.Widget.instance('chat', function(data) {
         ? T('widgets.chat.conversation.UIActions.title.leave', { label: groupLabel })
         : T('widgets.chat.conversation.UIActions.title.delete'),
       labels: [{
-        label: isChannelOrGroup ? T('widgets.chat.conversation.UIActions.label.leave') : T('widgets.chat.conversation.UIActions.label.leave'),
+        label: isChannelOrGroup ? T('widgets.chat.conversation.UIActions.label.leave') : T('widgets.chat.conversation.UIActions.label.delete'),
         action: function() {
           // Get the conversation
           var conversationToBeRemoved = _.find(conversations, { id: conversationId });
@@ -601,7 +601,7 @@ Fliplet.Widget.instance('chat', function(data) {
             });
           }
 
-          Fliplet.UI.Toast(isChannelOrGroup ? T('widgets.chat.conversation.successToast.leave') : T('widgets.chat.conversation.successToast.delete'));
+          Fliplet.UI.Toast(isChannelOrGroup ? T('widgets.chat.conversation.infoToast.leaving') : T('widgets.chat.conversation.infoToast.deleting'));
 
           // Remove current user from conversation
           return conversationToBeRemoved.participants.remove(userToRemove.id)
@@ -742,8 +742,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
     if (!Fliplet.Navigator.isOnline()) {
       var options = {
-        title: T('widgets.chat.conversation.successToast.offline.title'),
-        message: T('widgets.chat.conversation.successToast.offline.message')
+        title: T('widgets.chat.conversation.infoToast.offline.title'),
+        message: T('widgets.chat.conversation.infoToast.offline.message')
       };
 
       Fliplet.UI.Toast(options);
@@ -758,8 +758,8 @@ Fliplet.Widget.instance('chat', function(data) {
   function joinPublicChannel() {
     if (!Fliplet.Navigator.isOnline()) {
       Fliplet.UI.Toast({
-        title: T('widgets.chat.channel.successToast.offline.title'),
-        message: T('widgets.chat.channel.successToast.offline.message')
+        title: T('widgets.chat.channel.infoToast.offline.title'),
+        message: T('widgets.chat.channel.infoToast.offline.message')
       });
 
       return;
@@ -769,7 +769,7 @@ Fliplet.Widget.instance('chat', function(data) {
       return;
     }
 
-    Fliplet.UI.Toast(T('widgets.chat.channel.successToast.join'));
+    Fliplet.UI.Toast(T('widgets.chat.channel.infoToast.join'));
     $('.contacts-done-holder').addClass('creating');
 
     // Add current user to target public channel
@@ -814,8 +814,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
     if (!Fliplet.Navigator.isOnline()) {
       var options = {
-        title: T('widgets.chat.conversation.successToast.offline.title'),
-        message: T('widgets.chat.conversation.successToast.offline.message')
+        title: T('widgets.chat.conversation.infoToast.offline.title'),
+        message: T('widgets.chat.conversation.infoToast.offline.message')
       };
 
       Fliplet.UI.Toast(options);
@@ -836,8 +836,8 @@ Fliplet.Widget.instance('chat', function(data) {
 
     if (!Fliplet.Navigator.isOnline()) {
       var options = {
-        title: T('widgets.chat.conversation.successToast.offline.title'),
-        message: T('widgets.chat.conversation.successToast.offline.message')
+        title: T('widgets.chat.conversation.infoToast.offline.title'),
+        message: T('widgets.chat.conversation.infoToast.offline.message')
       };
 
       Fliplet.UI.Toast(options);
@@ -910,12 +910,12 @@ Fliplet.Widget.instance('chat', function(data) {
 
     Fliplet.Navigator.onOffline(function() {
       $wrapper.addClass('offline');
-      Fliplet.UI.Toast(T('widgets.chat.successToast.offline'));
+      Fliplet.UI.Toast(T('widgets.chat.infoToast.offline'));
     });
 
     Fliplet.Navigator.onOnline(function() {
       $wrapper.removeClass('offline');
-      Fliplet.UI.Toast(T('widgets.chat.successToast.online'));
+      Fliplet.UI.Toast(T('widgets.chat.infoToast.online'));
     });
 
     $(window).resize(function() {
@@ -1171,19 +1171,19 @@ Fliplet.Widget.instance('chat', function(data) {
 
         if (!Fliplet.Navigator.isOnline()) {
           Fliplet.UI.Toast({
-            title: T('widgets.chat.message.successToast.offline.title'),
-            message: T('widgets.chat.message.successToast.offline.message')
+            title: T('widgets.chat.message.infoToast.offline.title'),
+            message: T('widgets.chat.message.infoToast.offline.message')
           });
 
           return;
         }
 
         Fliplet.UI.Actions({
-          title: T('widgets.chat.message.UIActions.title.delete'),
+          title: T('widgets.chat.message.UIActions.delete.title'),
           labels: [{
-            label: T('widgets.chat.message.UIActions.label.delete'),
+            label: T('widgets.chat.message.UIActions.delete.label'),
             action: function() {
-              $(_this).find('span').text(T('widgets.chat.message.UIActions.progress.delete'));
+              $(_this).find('span').text(T('widgets.chat.message.UIActions.delete.progress'));
 
               deleteMessage(message);
             }
@@ -2897,7 +2897,7 @@ Fliplet.Widget.instance('chat', function(data) {
           // Log in again if the token does not seem valid
           $wrapper.addClass('loading');
 
-          Fliplet.UI.Toast(T('widgets.chat.successToast.verify'));
+          Fliplet.UI.Toast(T('widgets.chat.infoToast.verifying'));
 
           Fliplet.App.Storage.remove(USERTOKEN_STORAGE_KEY).then(function() {
             attemptLogin(false).then(function() {
