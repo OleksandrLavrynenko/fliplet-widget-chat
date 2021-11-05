@@ -1022,6 +1022,7 @@ Fliplet.Widget.instance('chat', function(data) {
           case 'mute':
             toggleNotifications(conversationId).then(function() {
               renderConversations(_.find(conversations, function(c) { return c.id === conversationId; }), true);
+              viewConversation(_.find(conversations, function(c) { return c.id === conversationId; }));
             });
             break;
           default:
@@ -2401,6 +2402,8 @@ Fliplet.Widget.instance('chat', function(data) {
   }
 
   function viewConversation(conversation) {
+    console.log('viewConversation', conversation);
+
     $wrapper.addClass('chat-open');
     openConversation(conversation.id);
 
