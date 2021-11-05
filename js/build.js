@@ -1021,7 +1021,13 @@ Fliplet.Widget.instance('chat', function(data) {
             break;
           case 'mute':
             toggleNotifications(conversationId).then(function() {
-              renderConversations(_.find(conversations, function(c) { return c.id === conversationId; }), true);
+              var conversation = _.find(conversations, function(c) { return c.id === conversationId; });
+
+              renderConversations(conversation, true);
+
+              if (currentConversation && conversation.id === currentConversation.id) {
+                viewConversation(currentConversation);
+              }
             });
             break;
           default:
