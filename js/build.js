@@ -1022,7 +1022,7 @@ Fliplet.Widget.instance('chat', function(data) {
           case 'mute':
             toggleNotifications(conversationId).then(function() {
               renderConversations(_.find(conversations, function(c) { return c.id === conversationId; }), true);
-              console.log(chatConnection, _.find(conversations, function(c) { return c.id === conversationId; }));
+              console.log(currentConversation, _.find(conversations, function(c) { return c.id === conversationId; }));
               // viewConversation(_.find(conversations, function(c) { return c.id === conversationId; }));
             });
             break;
