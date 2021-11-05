@@ -1025,7 +1025,7 @@ Fliplet.Widget.instance('chat', function(data) {
 
               renderConversations(conversation, true);
 
-              if (conversation.id === currentConversation.id) {
+              if (currentConversation && conversation.id === currentConversation.id) {
                 viewConversation(currentConversation);
               }
             });
