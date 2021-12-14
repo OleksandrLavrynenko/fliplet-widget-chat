@@ -1023,13 +1023,12 @@ Fliplet.Widget.instance('chat', function(data) {
             toggleNotifications(conversationId).then(function() {
               var conversation = _.find(conversations, function(c) { return c.id === conversationId; });
 
+              renderConversations(conversation, true);
+
               if (currentConversation && conversation.id === currentConversation.id) {
                 $messages.html('');
                 $messagesHolder.html(chatMessageGapTemplate());
                 viewConversation(conversation);
-              } else {
-                $messagesHolder.html(chatMessageGapTemplate());
-                renderConversations(conversation, true);
               }
             });
             break;
