@@ -1023,10 +1023,13 @@ Fliplet.Widget.instance('chat', function(data) {
             toggleNotifications(conversationId).then(function() {
               var conversation = _.find(conversations, function(c) { return c.id === conversationId; });
 
-              renderConversations(conversation, true);
-
               if (currentConversation && conversation.id === currentConversation.id) {
-                viewConversation(currentConversation);
+                $messages.html('');
+                $messagesHolder.html(chatMessageGapTemplate());
+                viewConversation(conversation);
+              } else {
+                $messagesHolder.html(chatMessageGapTemplate());
+                renderConversations(conversation, true);
               }
             });
             break;
@@ -1035,6 +1038,16 @@ Fliplet.Widget.instance('chat', function(data) {
         }
       })
       .on('click', '.chat-back', closeConversation)
+      .on('click', '.icon-muted', function(event) {
+        event.stopPropagation();
+
+        var $cardHolder = $(this).parents('.chat-card').find('.chat-card-holder');
+        var conversationId = $cardHolder.data('conversation-id');
+
+        toggleNotifications(conversationId).then(function() {
+          renderConversations(_.find(conversations, function(c) { return c.id === conversationId; }), true);
+        });
+      })
       .on('click', '.chat-mute', function(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -1511,7 +1524,7 @@ Fliplet.Widget.instance('chat', function(data) {
             maxWidth: maxWidth,
             maxHeight: maxHeight,
             // Use EXIF data to adjust rotation
-            orientation: (data.exif) ? data.exif.get('Orientation') : true
+            orientation: (data.exif) ? data.exif.get('Orientation') : true,
           }
         );
       }
@@ -1707,10 +1720,12 @@ Fliplet.Widget.instance('chat', function(data) {
           $('[data-contact-id="' + contact.id + '"]').addClass('contact-selected');
         });
       }
-    } else if (contactsSelected.length) {
-      contactsSelected.forEach(function(contact) {
-        $('[data-contact-id="' + contact.id + '"]').addClass('contact-selected');
-      });
+    } else {
+      if (contactsSelected.length) {
+        contactsSelected.forEach(function(contact) {
+          $('[data-contact-id="' + contact.id + '"]').addClass('contact-selected');
+        });
+      }
     }
 
     if (!searchedData.length) {
@@ -2502,7 +2517,7 @@ Fliplet.Widget.instance('chat', function(data) {
 
       items.push(item);
 
-      if (clickedImgURL.trim() === imageURL.trim()) {
+      if(clickedImgURL.trim() === imageURL.trim()) {
         clickedIndex = idx;
       }
     });
