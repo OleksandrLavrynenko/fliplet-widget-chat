@@ -566,6 +566,19 @@ Fliplet.Widget.instance('chat', function(data) {
     });
   }
 
+  function muteConversation(conversationId) {
+    toggleNotifications(conversationId).then(function() {
+      var conversation = _.find(conversations, function(c) { return c.id === conversationId; });
+
+      renderConversations(conversation, true);
+
+      if (currentConversation && conversation.id === currentConversation.id) {
+        $messagesHolder.html(chatMessageGapTemplate());
+        viewConversation(conversation);
+      }
+    });
+  }
+
   function deleteConversation(conversationId, userToRemove, isGroup, isChannel) {
     var groupLabel = isChannel ? 'channel' : 'group';
     var isChannelOrGroup = isGroup || isChannel;
@@ -1020,16 +1033,7 @@ Fliplet.Widget.instance('chat', function(data) {
             deleteConversation(conversationId, currentUserAllData, isGroup, isChannel);
             break;
           case 'mute':
-            toggleNotifications(conversationId).then(function() {
-              var conversation = _.find(conversations, function(c) { return c.id === conversationId; });
-
-              renderConversations(conversation, true);
-
-              if (currentConversation && conversation.id === currentConversation.id) {
-                $messagesHolder.html(chatMessageGapTemplate());
-                viewConversation(conversation);
-              }
-            });
+            muteConversation(conversationId);
             break;
           default:
             break;
