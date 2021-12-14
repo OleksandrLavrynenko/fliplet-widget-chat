@@ -1042,6 +1042,7 @@ Fliplet.Widget.instance('chat', function(data) {
         event.stopPropagation();
         toggleNotifications(currentConversation.id).then(function() {
           $messages.html('');
+          $messagesHolder.html(chatMessageGapTemplate());
           viewConversation(currentConversation);
         });
       })
