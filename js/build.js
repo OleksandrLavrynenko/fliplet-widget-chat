@@ -1026,7 +1026,6 @@ Fliplet.Widget.instance('chat', function(data) {
               renderConversations(conversation, true);
 
               if (currentConversation && conversation.id === currentConversation.id) {
-                $messages.html('');
                 $messagesHolder.html(chatMessageGapTemplate());
                 viewConversation(conversation);
               }
