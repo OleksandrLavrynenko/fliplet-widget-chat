@@ -1040,16 +1040,6 @@ Fliplet.Widget.instance('chat', function(data) {
         }
       })
       .on('click', '.chat-back', closeConversation)
-      .on('click', '.icon-muted', function(event) {
-        event.stopPropagation();
-
-        var $cardHolder = $(this).parents('.chat-card').find('.chat-card-holder');
-        var conversationId = $cardHolder.data('conversation-id');
-
-        toggleNotifications(conversationId).then(function() {
-          renderConversations(_.find(conversations, function(c) { return c.id === conversationId; }), true);
-        });
-      })
       .on('click', '.chat-mute', function(event) {
         event.preventDefault();
         event.stopPropagation();
