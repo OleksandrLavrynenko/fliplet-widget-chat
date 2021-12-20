@@ -1044,7 +1044,7 @@ Fliplet.Widget.instance('chat', function(data) {
         event.preventDefault();
         event.stopPropagation();
         toggleNotifications(currentConversation.id).then(function() {
-          $messages.html('');
+          $messages.html(chatMessageGapTemplate());
           viewConversation(currentConversation);
         });
       })
