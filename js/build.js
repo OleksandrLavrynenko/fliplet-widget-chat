@@ -1637,12 +1637,6 @@ Fliplet.Widget.instance('chat', function(data) {
     var $holder = $element.parents('.input-second-row');
     var text = DOMPurify.sanitize($messageArea.val().trim());
 
-    if (!text) {
-      $messageArea.val('');
-
-      return;
-    }
-
     $holder.addClass('sending');
 
     messageAreaFocus();
