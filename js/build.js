@@ -1,6 +1,8 @@
 /* Handlebars Helpers */
 Handlebars.registerHelper('formatMessage', function(text) {
+  text = DOMPurify.sanitize(text);
   // User separate var lines ending in ; so that each line can be stepped over individually when necessary
+
   var breakRegExp = /(\r\n|\n|\r)/gm;
   var emailRegExp = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/gm;
   var numberRegExp = /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,8}/gm;
@@ -1639,7 +1641,7 @@ Fliplet.Widget.instance('chat', function(data) {
   function sendMessage($element) {
     var $parentHolder = $element.parents('.chat-input-controls');
     var $holder = $element.parents('.input-second-row');
-    var text = $messageArea.val().trim();
+    var text = DOMPurify.sanitize($messageArea.val().trim());
 
     $holder.addClass('sending');
 
@@ -1661,10 +1663,9 @@ Fliplet.Widget.instance('chat', function(data) {
         .then(function() {
           processMessage();
         });
-    })
-      .catch(function(error) {
-        handleErrorOnSentMessage($holder, error);
-      });
+    }).catch(function(error) {
+      handleErrorOnSentMessage($holder, error);
+    });
   }
 
   /** INIT **/
@@ -1718,12 +1719,10 @@ Fliplet.Widget.instance('chat', function(data) {
           $('[data-contact-id="' + contact.id + '"]').addClass('contact-selected');
         });
       }
-    } else {
-      if (contactsSelected.length) {
-        contactsSelected.forEach(function(contact) {
-          $('[data-contact-id="' + contact.id + '"]').addClass('contact-selected');
-        });
-      }
+    } else if (contactsSelected.length) {
+      contactsSelected.forEach(function(contact) {
+        $('[data-contact-id="' + contact.id + '"]').addClass('contact-selected');
+      });
     }
 
     if (!searchedData.length) {
