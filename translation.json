@@ -12,7 +12,7 @@
                 "save": "Save",
                 "cancel": "Cancel"
             },
-            "verifyAccess ": {
+            "verifyAccess": {
                 "instruction": "Verify that you can access this feature. Try again by<br> pressing the <strong>Refresh</strong> button below.",
                 "actions": {
                     "refresh": "Refresh"
