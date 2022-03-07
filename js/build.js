@@ -2330,7 +2330,6 @@ Fliplet.Widget.instance('chat', function(data) {
   }
 
   function renderConversations(data, replace) {
-
     var conversationHTML = conversationTemplate(data);
     var conversationIsOpen = false;
 
