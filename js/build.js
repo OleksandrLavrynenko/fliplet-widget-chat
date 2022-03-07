@@ -2309,12 +2309,7 @@ Fliplet.Widget.instance('chat', function(data) {
         conversation.isGroup = !conversation.isChannel && participants.length > 2;
         conversation.usersInConversation = conversationName;
         conversation.nParticipants = participants.length;
-        conversation.absoluteTime = moment(conversation.updatedAt).calendar(null, {
-          sameDay: '[Today]',
-          lastDay: '[Yesterday]',
-          lastWeek: '[Older]',
-          sameElse: '[Older]'
-        });
+        conversation.absoluteTime = TD(conversation.updatedAt, { format: 'fromNow' });
 
         var conversationMessages = _.filter(messages, { dataSourceId: conversation.id });
 
@@ -2336,6 +2331,7 @@ Fliplet.Widget.instance('chat', function(data) {
   }
 
   function renderConversations(data, replace) {
+
     var conversationHTML = conversationTemplate(data);
     var conversationIsOpen = false;
 
