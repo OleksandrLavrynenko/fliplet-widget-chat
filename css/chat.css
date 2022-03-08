@@ -115,7 +115,7 @@ html.no-supports-container.native body,
 .error-area,
 .empty-area {
   flex: 1;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
